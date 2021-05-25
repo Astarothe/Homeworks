@@ -1,0 +1,50 @@
+body {
+    background-color: lightblue;
+}
+
+.wrapper {
+    display: flex;
+    margin-left: 20px;
+    margin-bottom: 3px;
+    margin-top: 3px;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    object-fit: cover;
+    align-self: flex-end;
+}
+
+.message {
+    max-width: 300px;
+    background-color: black;
+    border-radius: 10px 10px 10px 10px;
+    margin-left: 15px;
+    padding-left: 15px;
+    padding-right: 20px;
+}
+
+.userName {
+    font-size: 16px;
+    color: mediumpurple;
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+.userMessage {
+    font-size: 16px;
+    color: white;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+.userMessageTime {
+    font-size: 13px;
+    color: slategray;
+    float: right;
+    margin-right: -5px;
+    padding-left: 15px;
+    padding-top: 4px;
+}
