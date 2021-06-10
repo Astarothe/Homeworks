@@ -1,12 +1,39 @@
 .superInput {
-
+    display: inline-block;
+    width: 215px;
+    padding: 10px 0 10px 15px;
+    font-family: "Open Sans", sans;
+    font-weight: 400;
+    color: #377D6A;
+    background: #efefef;
+    border: 3px solid greenyellow;
+    border-radius: 10px;
+    outline: 0;
+    text-indent: 70px;
+    transition: all .3s ease-in-out;
+    margin-bottom: 30px;
+    margin-top: 10px;
 }
 
 .errorInput {
-    border: 3px solid lime;
-    background: red;
+    display: inline-block;
+    width: 215px;
+    padding: 10px 0 10px 15px;
+    font-family: "Open Sans", sans;
+    font-weight: 400;
+    background: #efefef;
+    border: 3px solid orangered;
+
+    border-radius: 10px;
+    outline: 0;
+    text-indent: 70px;
+    transition: all .3s ease-in-out;
+    margin-bottom: 30px;
+    margin-top: 10px;
+
 }
 
 .error {
     color: red;
+    margin-top: -21px;
 }

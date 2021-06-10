@@ -2,9 +2,12 @@ import React, {useState} from 'react'
 import Affairs from './Affairs'
 
 
-export type AffairPriorityType = "all" | "high" | "low" | "middle"
-export type AffairType =
-    { _id: number, name: string, priority: AffairPriorityType }
+export type AffairPriorityType = "high" | "low" | "middle"
+export type AffairType = {
+    _id: number
+    name: string
+    priority: AffairPriorityType
+}
 
 export type FilterType = 'all' | AffairPriorityType
 
@@ -17,7 +20,7 @@ const defaultAffairs: Array<AffairType> = [
     {_id: 5, name: 'html & css', priority: 'middle'},
 ]
 
-export const filterAffairs = (affairs: Array<AffairType>, filter: AffairPriorityType): Array<AffairType> => {
+export const filterAffairs = (affairs: Array<AffairType>, filter: FilterType): Array<AffairType> => {
     if (filter === 'all') return affairs
     else if (filter === "low") {
         return affairs.filter((p: AffairType) => p.priority === "low")
@@ -30,13 +33,12 @@ export const filterAffairs = (affairs: Array<AffairType>, filter: AffairPriority
     return affairs
 }
 export const deleteAffair = (affairs: Array<AffairType>, _id: number): Array<AffairType> => {
-    let affairsNew = affairs.filter((f:AffairType) => f._id !== _id);
-        return affairsNew
+    return affairs.filter((f:AffairType) => f._id !== _id);
 }
 
 function HW2() {
     const [affairs, setAffairs] = useState<Array<AffairType>>(defaultAffairs)
-    const [filter, setFilter] = useState<FilterType>('all')
+    const [filter, setFilter] = useState<FilterType>('low')
 
     const filteredAffairs = filterAffairs(affairs, filter)
     const deleteAffairCallback = (_id: number) => setAffairs(deleteAffair(affairs, _id))
