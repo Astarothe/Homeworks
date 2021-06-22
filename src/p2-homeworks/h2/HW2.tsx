@@ -22,13 +22,9 @@ const defaultAffairs: Array<AffairType> = [
 
 export const filterAffairs = (affairs: Array<AffairType>, filter: FilterType): Array<AffairType> => {
     if (filter === 'all') return affairs
-    else if (filter === "low") {
-        return affairs.filter((p: AffairType) => p.priority === "low")
-    } else if (filter === "high") {
-        return affairs.filter((p: AffairType) => p.priority === "high")
-    } else if (filter === "middle") {
-        return affairs.filter((p: AffairType) => p.priority === "middle")
-    }
+    else if (filter === "low") return affairs.filter((p: AffairType) => p.priority === "low")
+    else if (filter === "high") return affairs.filter((p: AffairType) => p.priority === "high")
+    else if (filter === "middle") return affairs.filter((p: AffairType) => p.priority === "middle")
 
     return affairs
 }

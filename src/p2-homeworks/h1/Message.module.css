@@ -22,36 +22,34 @@ body {
 .message {
     max-width: 300px;
     background-color: black;
-    border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 0px;
     margin-left: 20px;
     padding-left: 15px;
     padding-right: 20px;
-    position:relative;
+    position: relative;
     box-shadow: 5px 5px 5px slateblue;
-
 }
+
 .message:before {
-    position:absolute;
-    content:"";
-    left:-7px;
-    bottom:-5px;
-    transform: scaleY(0.4) rotate(45deg);
-    width:30px;
-    height:30px;
-    background:black;
-    /*box-shadow: 5px 5px 5px slateblue;*/
     z-index: -1;
+    content: '';
+    width: 15px;
+    height: 15px;
+    background: radial-gradient(circle at 0 0,rgba(0,0,0,0) 15px,rgba(0,0,0,1)0);
+    position: absolute;
+    left: -14px;
+    bottom: 0;
 }
 
 .userName {
-    font-size: 16px;
+    font-size: 18px;
     color: mediumpurple;
     margin-top: 10px;
     margin-bottom: 0px;
 }
 
 .userMessage {
-    font-size: 16px;
+    font-size: 13px;
     color: white;
     margin-top: 0px;
     margin-bottom: 10px;
