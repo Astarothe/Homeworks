@@ -1,0 +1,50 @@
+
+.listLevel {
+    list-style-type: none;
+    display: flex;
+    transition: 0.5s;
+    transform: transLateX(-70%);
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(105, 9, 121, 1) 33%, rgba(0, 212, 255, 1) 100%);
+}
+
+.listLevel:hover {
+    transform: transLateX(-0%);
+}
+
+.listLevel:hover .menu {
+    margin-left: 0;
+
+}
+
+
+.listItem {
+    margin: 0px 5px;
+    font-size: 16px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 5px;
+}
+
+.listItem a {
+    text-decoration: none;
+    color: lightskyblue;
+}
+
+.listItem span {
+    background: transparent;
+    font-size: 18px;
+}
+
+.wrapperList {
+    display: flex;
+}
+
+.active {
+    font-weight: 700;
+}
+
+.menu {
+    margin-left: 60px;
+    transition: 0.5s;
+    padding-right: 20px;
+}
