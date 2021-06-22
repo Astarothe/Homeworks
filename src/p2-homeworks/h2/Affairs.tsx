@@ -1,11 +1,13 @@
 import React from 'react'
 import Affair from './Affair'
 import {AffairType, FilterType} from './HW2'
+import s from "./Affairs.module.css"
 
 type AffairsPropsType = {
     data: Array<AffairType>
     setFilter: (filter: FilterType) => void
-    deleteAffairCallback: (_id:number) => void
+    deleteAffairCallback: (_id: number) => void
+    filter: FilterType
 }
 
 function Affairs(props: AffairsPropsType) {
@@ -17,20 +19,31 @@ function Affairs(props: AffairsPropsType) {
         />
     ))
 
-    const setAll = () => {props.setFilter("all")}
-    const setHigh = () => {props.setFilter("high")}
-    const setMiddle = () => {props.setFilter("middle")}
-    const setLow = () => {props.setFilter("low")}
+    const setAll = () => props.setFilter("all")
+
+    const setHigh = () => props.setFilter("high")
+
+    const setMiddle = () => props.setFilter("middle")
+
+    const setLow = () => props.setFilter("low")
+
+
+    const allClassName = `${s.buttonItem} ${props.filter === "all" ? s.active : ""}`
+    const highClassName = `${s.buttonItem} ${props.filter === "high" ? s.active : ""}`
+    const middleClassName = `${s.buttonItem} ${props.filter === "middle" ? s.active : ""}`
+    const lowClassName = `${s.buttonItem} ${props.filter === "low" ? s.active : ""}`
 
     return (
         <div>
-
-            {mappedAffairs}
-
-            <button onClick={setAll}>All</button>
-            <button onClick={setHigh}>High</button>
-            <button onClick={setMiddle}>Middle</button>
-            <button onClick={setLow}>Low</button>
+            <div className={s.listAffairs}>
+                {mappedAffairs}
+            </div>
+            <div className={s.buttonList}>
+                <button className={allClassName} onClick={setAll} data-button={"All"}>All</button>
+                <button className={highClassName} onClick={setHigh} data-button={"High"}>High</button>
+                <button className={middleClassName} onClick={setMiddle} data-button={"Middle"}>Middle</button>
+                <button className={lowClassName} onClick={setLow} data-button={"Low"}>Low</button>
+            </div>
         </div>
     )
 }

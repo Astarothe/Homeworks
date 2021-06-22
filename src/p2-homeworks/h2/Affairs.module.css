@@ -1,3 +1,38 @@
 .someClass {
 
 }
+.listAffairs {
+    width: 300px;
+}
+
+.buttonList{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    width: 300px;
+}
+.buttonItem{
+    width: 60px;
+    background-color: lightblue;
+    border: 1px solid lightslategray;
+    border-radius: 5px;
+    box-shadow: 10px 5px 9px;
+    transition: 0.2s;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: unset;
+}
+.buttonItem:hover{
+    box-shadow: 0px 0px 0px;
+    border: 1px solid transparent;
+}
+
+.buttonItem:active{
+    box-shadow: 0px 0px 4px;
+    border: 1px solid transparent;
+}
+.active {
+    background-color: cornflowerblue;
+    box-shadow: 0px 0px 0px;
+    border: none;
+}

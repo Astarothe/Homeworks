@@ -1,0 +1,39 @@
+.affairsItem {
+    padding: 5px;
+    display: flex;
+}
+
+.buttonItem {
+    width: 80px;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    box-shadow: 3px 3px 2px;
+    background-color: cornflowerblue;
+    transition: 0.2s;
+}
+
+
+.buttonItem:hover {
+    box-shadow: 0px 0px 0px;
+}
+
+.buttonItem:active {
+    opacity: 0.4;
+}
+
+.nameItem {
+    width: 140px;
+    font-weight: 600;
+}
+
+.high {
+    color: red;
+}
+
+.middle {
+    color: mediumpurple;
+}
+
+.low {
+    color: greenyellow;
+}
