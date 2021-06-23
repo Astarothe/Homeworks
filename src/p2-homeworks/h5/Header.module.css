@@ -15,7 +15,6 @@
 
 .listLevel:hover .menu {
     margin-left: 0;
-
 }
 
 
@@ -47,7 +46,12 @@
 
 a.active {
     font-weight: 700;
-    color: deepskyblue;
+    color: cornsilk;
+}
+a.active:hover{
+    font-weight: 700;
+    color: cornsilk;
+    opacity: 1;
 }
 
 .menu {
