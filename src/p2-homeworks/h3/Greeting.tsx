@@ -7,26 +7,25 @@ type GreetingPropsType = {
     addUser: () => void
     error: string
     totalUsers: number
-    inputError: boolean
+    onKeyBoardCallback: (e: KeyboardEvent<HTMLInputElement>) => void
 }
 
 // презентационная компонента (для верстальщика)
 const Greeting: React.FC<GreetingPropsType> = (
-    {name, setNameCallback, addUser, error, totalUsers, inputError}
+    {name, setNameCallback, addUser, error, totalUsers, onKeyBoardCallback}
 ) => {
-    let inputClass = s.error
 
-    let inputStyle = {
-        border: inputError ? "5px solid darkseagreen" : "5px solid red"
-    };
-    const keyNumberHandler = (e: KeyboardEvent<HTMLInputElement>) => e.charCode === 13 ? addUser() : null
+    const inputStyle = `${s.input} ${error ? s.errorInput : ""}`
+
 
     return (
         <div className={s.wrapper}>
-            <input onKeyPress={keyNumberHandler}
-                   style={inputStyle}
-                   value={name} onChange={setNameCallback} className={inputClass}/>
-            <button className={s.buttonAdd} onClick={addUser}>Add user</button>
+            <input onKeyPress={onKeyBoardCallback}
+                   value={name}
+                   onChange={setNameCallback}
+                   className={inputStyle}
+            onBlur={setNameCallback}/>
+            <button className={s.buttonAdd} onClick={addUser } disabled={!!error}>Add</button>
             <span className={s.totalUsers}>All users - {totalUsers}</span>
             <div>
                 <span className={s.errorText}>{error}</span>

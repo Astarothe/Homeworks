@@ -3,27 +3,55 @@
 }
 
 .wrapper {
-
-    text-align-last: center;
+    margin-left: 15px;
+    margin-top: 15px;
 }
 
-.error {
-    height: 20px;
-    border-radius: 20px;
+.input {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    padding: 10px 0 10px 15px;
+    height: 25px;
+    border-radius: 10px;
     padding: 5px 10px;
     outline: none;
     transition: 0.5s;
-    font-size: 20px;
-    margin-bottom: 30px;
+    font-size: 17px;
+    margin-bottom: 10px;
+    border: 3px solid transparent;
 
+}
+.input:focus{
+    border: 3px solid greenyellow;
+}
+.errorInput:focus {
+    border: 3px solid red;
+}
+.errorInput {
+    border: 3px solid red;
 }
 
 .buttonAdd {
-    margin-left: 20px;
-    width: 80px;
+    width: 90px;
     height: 30px;
-    border-radius: 20px;
-    margin-right: 5px;
+    background-color: deepskyblue;
+    border: none;
+    border-radius: 5px;
+    transition: 0.2s;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: unset;
+    margin-left: 30px;
+    margin-right: 20px;
+}
+.buttonAdd:disabled {
+    box-shadow: 0px 0px 0px;
+    border: none;
+}
+
+.buttonAdd:hover {
+    box-shadow:-7px -7px 20px 0px #fff9, -4px -4px 5px 0px #fff9, 7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001;
+    border: none;
 }
 .totalUsers {
     font-size: 20px;
@@ -32,4 +60,6 @@
 .errorText {
     font-size: 20px;
     color: crimson;
+    display: block;
+    height: 26px;
 }

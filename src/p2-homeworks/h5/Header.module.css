@@ -5,10 +5,12 @@
     transition: 0.5s;
     transform: transLateX(-70%);
     background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(105, 9, 121, 1) 33%, rgba(0, 212, 255, 1) 100%);
+    border-radius: 30px;
 }
 
 .listLevel:hover {
     transform: transLateX(-0%);
+    border-radius: 0px 20px 20px 0px;
 }
 
 .listLevel:hover .menu {
@@ -29,6 +31,10 @@
     text-decoration: none;
     color: lightskyblue;
 }
+.listItem a:hover{
+    color: white;
+    opacity: 0.8;
+}
 
 .listItem span {
     background: transparent;
@@ -39,8 +45,9 @@
     display: flex;
 }
 
-.active {
+a.active {
     font-weight: 700;
+    color: deepskyblue;
 }
 
 .menu {

@@ -1,7 +1,21 @@
 .checkbox {
-
+    appearance: none;
+    width: 32px;
+    height: 32px;
+    background: url("unchecked.png");
+    margin-top: 15px;
+}
+.checkbox:checked{
+    background: url("checked.png");
+}
+.checkbox:disabled{
+    opacity: 0.4;
 }
 
 .spanClassName {
-
+    display: inline-block;
+    margin-left: 10px;
+    vertical-align: top;
+    padding-top: 16px;
+    font-size: 17px;
 }
