@@ -1,0 +1,19 @@
+.span {
+    position: relative;
+    padding-left: 24px;
+    display: inline-block;
+    margin-bottom: 5px;
+
+}
+
+.span:after {
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEwAACxMBAJqcGAAAARFJREFUeJztlS0SwjAUBtcgOROGg2AQWDQ/oidguAfH4CRIBAIPqqYTSpu8ppO8b2eeAfPtihSEEEIIIcpiDzyBN3AFFvPOyUsDfDp3w0mEkLybCH3y1UcYIl9thC3D5auMsATuKEJUhMscYy1YB36LifDKMdaa9sFrAv+NjfDIsNeU7mufGmE3/WQ7fn3qYiMcpp9sx7/v/NgIVcmPjVCl/NAIVcv/i7CZfLEhsfJ9EYohVb7oCFby7a3yzk/DWt7Fgyf5wEm+FCRveJIvBWv5Y975aUje8CRfCpI3PMmXguQN75R3fhqSNzzJl4RreXAuD87lIV3+nH+yLa7lwbk8OJcH5/LgXB6cywshhBCiXr4DsQGxk6iDzgAAAABJRU5ErkJggg==);
+    width: 14px;
+    height: 14px;
+    background-size: contain;
+    position: absolute;
+    top: 5px;
+    left: 7px;
+    content: "";
+    transform: rotate(270deg);
+}
