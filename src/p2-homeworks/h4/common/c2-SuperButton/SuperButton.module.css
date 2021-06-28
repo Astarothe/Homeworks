@@ -21,7 +21,10 @@
             4px 4px 5px 0px #0001;
 }
 
-
+.default:disabled {
+    box-shadow: none;
+    opacity: 0.4;
+}
 
 
 .red {

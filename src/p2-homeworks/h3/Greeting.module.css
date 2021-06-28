@@ -21,12 +21,15 @@
     border: 3px solid transparent;
 
 }
-.input:focus{
+
+.input:focus {
     border: 3px solid greenyellow;
 }
+
 .errorInput:focus {
     border: 3px solid red;
 }
+
 .errorInput {
     border: 3px solid red;
 }
@@ -44,19 +47,21 @@
     margin-left: 30px;
     margin-right: 20px;
 }
-.buttonAdd:disabled {
-    box-shadow: 0px 0px 0px;
+
+.buttonAdd:hover {
+    box-shadow: -7px -7px 20px 0px #fff9, -4px -4px 5px 0px #fff9, 7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001;
     border: none;
 }
 
-.buttonAdd:hover {
-    box-shadow:-7px -7px 20px 0px #fff9, -4px -4px 5px 0px #fff9, 7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001;
-    border: none;
+.buttonAdd:disabled {
+    box-shadow: none;
 }
+
 .totalUsers {
     font-size: 20px;
     margin-left: 10px;
 }
+
 .errorText {
     font-size: 20px;
     color: crimson;
