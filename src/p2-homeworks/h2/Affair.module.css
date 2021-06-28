@@ -10,6 +10,7 @@
     box-shadow: 3px 3px 2px;
     background-color: cornflowerblue;
     transition: 0.2s;
+    cursor: pointer;
 }
 
 
