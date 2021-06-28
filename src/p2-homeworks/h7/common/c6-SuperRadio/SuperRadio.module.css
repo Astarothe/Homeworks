@@ -1,0 +1,26 @@
+.checkbox {
+    appearance: none;
+    width: 32px;
+    height: 32px;
+    background: url("./unchecked.png");
+    margin-top: 15px;
+    background-position-y: 14px;
+    background-repeat: no-repeat;
+    padding: 0 20px;
+    transition: 0.2s;
+}
+.checkbox:checked{
+    background: url("./checked.png");
+    background-repeat: no-repeat;
+}
+.checkbox:disabled{
+    opacity: 0.4;
+}
+.label{
+    position: relative;
+}
+.span {
+    position: absolute;
+    bottom: 12px;
+    right: 0px;
+}
