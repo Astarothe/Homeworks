@@ -1,44 +1,62 @@
 .default {
-    transition: all 0.3s ease;
-    width: 130px;
-    height: 40px;
-    padding: 10px 25px;
-    border: 2px solid #000;
-    font-family: 'Lato', sans-serif;
+    font-family: "Open Sans", sans-serif;
+    font-size: 20px;
     font-weight: 500;
-    background: transparent;
-    cursor: pointer;
-    transition: all 0.3s ease;
     position: relative;
     display: inline-block;
-    margin-bottom: 20px;
+    width: 150px;
+    margin: 15px 15px 20px 15px;
+    padding: 6px 25px;
+    border: 2px solid cornflowerblue;
+    border-radius: 30px;
+    background: cornflowerblue;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    /*box-shadow: 10px 10px 10px royalblue;*/
+    box-shadow: 10px 10px 10px slategrey;
+    text-transform: capitalize;
 }
+
 .default:hover {
-    box-shadow:
-            -7px -7px 20px 0px #fff9,
-            -4px -4px 5px 0px #fff9,
-            7px 7px 20px 0px #0002,
-            4px 4px 5px 0px #0001;
+    box-shadow: none;
+    transition: 0.3s;
+    opacity: 0.9;
+}
+
+.default:active {
+    box-shadow: none;
+    border: 2px solid cornflowerblue;
+    opacity: 0.6;
 }
 
 .default:disabled {
     box-shadow: none;
     opacity: 0.4;
+    border: 2px solid cornflowerblue;
+    cursor: auto;
 }
 
-
 .red {
-    width: 130px;
-    height: 40px;
-    padding: 10px 25px;
-    border: 2px solid #000;
-    font-family: 'Lato', sans-serif;
+    font-family: "Open Sans", sans-serif;
+    font-size: 20px;
     font-weight: 500;
-    background: transparent;
-    cursor: pointer;
-    transition: all 0.3s ease;
     position: relative;
     display: inline-block;
-    background: red;
+    width: 130px;
+    margin-top: 15px;
     margin-bottom: 20px;
+    padding: 6px 25px;
+    border: 2px solid red;
+    border-radius: 30px;
+    background-color: red;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 10px 10px 10px slategrey;
+
+}
+
+.red:hover {
+    box-shadow: none;
+    border: 2px solid red;
+    transition: 0.3s;
 }

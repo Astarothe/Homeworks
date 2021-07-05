@@ -1,0 +1,16 @@
+.userName {
+    display: inline-block;
+    width: 110px;
+    margin-right: 30px;
+}
+
+.userAge {
+    display: inline-block;
+    width: 20px;
+    text-align: right;
+}
+.wrapper {
+    font-size: 17px;
+    margin-left: 10px;
+    margin-top: 20px;
+}
