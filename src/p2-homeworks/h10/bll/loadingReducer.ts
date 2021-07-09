@@ -1,14 +1,23 @@
-const initState = {
+const IS_FETCHING = "IS_FETCHING" as const
 
+type InitialStateType = {
+    isFetching: boolean
 }
 
-export const loadingReducer = (state = initState, action: any): any => { // fix any
+type ActionPropsType = ReturnType<typeof loadingAC>
+
+const initState = {
+    isFetching: false
+}
+
+export const loadingReducer = (state: InitialStateType = initState, action: ActionPropsType): InitialStateType => { // fix any
     switch (action.type) {
-        case '': {
-            return state
+        case IS_FETCHING: {
+            return {...state,
+                isFetching: action.isFetching}
         }
         default: return state
     }
 }
 
-export const loadingAC = (): any => {} // fix any
+export const loadingAC = (isFetching: boolean): {type:string, isFetching:boolean} => ({type:IS_FETCHING, isFetching}) // fix any
