@@ -1,9 +1,10 @@
 import {combineReducers, createStore } from 'redux'
 import {loadingReducer} from './loadingReducer'
+import {settingsValueReducer} from "./settingsValueReducer";
 
 const reducers = combineReducers({
     loading: loadingReducer,
-
+    rangeValue: settingsValueReducer
 })
 
 const store = createStore(reducers)

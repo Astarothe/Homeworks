@@ -9,7 +9,7 @@ type ActionType = {
 const IS_LOADING = "IS_LOADING"
 
 const initState = {
-    isFetching: false
+    isFetching: false,
 }
 
 

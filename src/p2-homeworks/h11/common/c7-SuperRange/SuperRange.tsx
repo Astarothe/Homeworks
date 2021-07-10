@@ -12,14 +12,16 @@ type SuperRangePropsType = DefaultInputPropsType & { // и + ещё пропсы
     onChangeRange?: (value: number) => void
     value: number
     setValue: (num: number) => void
+    max: number
+    min: number
 };
 
-const SuperRange: React.FC<SuperRangePropsType> = (
+const SuperRange: React.FC<SuperRangePropsType> = React.memo((
     {
         type, // достаём и игнорируем чтоб нельзя было задать другой тип инпута
         onChange, onChangeRange,
         className, value,
-        setValue,
+        setValue, max, min,
 
         ...restProps// все остальные пропсы попадут в объект restProps
     }
@@ -33,8 +35,10 @@ const SuperRange: React.FC<SuperRangePropsType> = (
     const finalRangeClassName = `${s.range} ${className ? className : ''}`
 
     const handleChange = (e: any, newValue: any) => {
-        console.log(e.currentTarget.value, newValue)
-        setValue(newValue)
+        console.log(min,max, e.currentTarget.value)
+        if(max >= newValue && min <= newValue) {
+            setValue(newValue)
+        }
     }
 
     return (
@@ -59,6 +63,6 @@ const SuperRange: React.FC<SuperRangePropsType> = (
             {/*/>*/}
         </>
     )
-}
+})
 
 export default SuperRange

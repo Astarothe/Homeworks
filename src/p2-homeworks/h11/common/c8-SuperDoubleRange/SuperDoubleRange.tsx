@@ -7,13 +7,17 @@ type SuperDoubleRangePropsType = {
     value?: [number, number]
     setValueMin: (num: number) => void
     setValueMax: (num: number) => void
+    min: number
+    max: number
+    step: number
     // min, max, step, disable, ...
 }
 
-const SuperDoubleRange: React.FC<SuperDoubleRangePropsType> = (
+const SuperDoubleRange: React.FC<SuperDoubleRangePropsType> = React.memo((
     {
         onChangeRange, value,
         setValueMin, setValueMax,
+        min,max,step,
         // min, max, step, disable, ...
     }
 ) => {
@@ -29,7 +33,11 @@ const SuperDoubleRange: React.FC<SuperDoubleRangePropsType> = (
             <Grid container>
                 <Grid item style={{width: "400px"}}>
                     <Slider
+                        min={min}
+                        max={max}
                         value={value}
+                        step={step}
+
                         onChange={handleChange}
                         valueLabelDisplay="auto"
                         aria-labelledby="range-slider"
@@ -39,6 +47,6 @@ const SuperDoubleRange: React.FC<SuperDoubleRangePropsType> = (
             </Grid>
         </>
     )
-}
+})
 
 export default SuperDoubleRange
