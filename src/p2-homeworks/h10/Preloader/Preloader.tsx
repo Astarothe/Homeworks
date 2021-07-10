@@ -3,6 +3,6 @@ import React from "react";
 
 export const Preloader = () => {
     return <div>
-        <img style={{marginLeft: "40px"}} src={preload}/>
+        <img style={{marginLeft: "40px"}} src={preload} alt={"Preloader"}/>
     </div>
 }

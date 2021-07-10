@@ -1,3 +1,5 @@
+import Grid from '@material-ui/core/Grid';
+import Slider from '@material-ui/core/Slider';
 import React, {ChangeEvent, DetailedHTMLProps, InputHTMLAttributes} from 'react'
 import s from './SuperRange.module.css'
 
@@ -8,13 +10,16 @@ type DefaultInputPropsType = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElem
 // (чтоб не писать value: string, onChange: ...; они уже все описаны в DefaultInputPropsType)
 type SuperRangePropsType = DefaultInputPropsType & { // и + ещё пропсы которых нет в стандартном инпуте
     onChangeRange?: (value: number) => void
+    value: number
+    setValue: (num: number) => void
 };
 
 const SuperRange: React.FC<SuperRangePropsType> = (
     {
         type, // достаём и игнорируем чтоб нельзя было задать другой тип инпута
         onChange, onChangeRange,
-        className,
+        className, value,
+        setValue,
 
         ...restProps// все остальные пропсы попадут в объект restProps
     }
@@ -27,15 +32,31 @@ const SuperRange: React.FC<SuperRangePropsType> = (
 
     const finalRangeClassName = `${s.range} ${className ? className : ''}`
 
+    const handleChange = (e: any, newValue: any) => {
+        console.log(e.currentTarget.value, newValue)
+        setValue(newValue)
+    }
+
     return (
         <>
-            <input
-                type={'range'}
-                onChange={onChangeCallback}
-                className={finalRangeClassName}
+            <Grid container>
+                <Grid item style={{width: "400px"}}>
+                    <Slider
+                        value={value}
+                        onChange={handleChange}
+                        valueLabelDisplay="auto"
+                        aria-labelledby="range-slider"
+                        // getAriaValueText={valuetext}
+                    />
+                </Grid>
+            </Grid>
+            {/*<input*/}
+            {/*    type={'range'}*/}
+            {/*    onChange={onChangeCallback}*/}
+            {/*    className={finalRangeClassName}*/}
 
-                {...restProps} // отдаём инпуту остальные пропсы если они есть (value например там внутри)
-            />
+            {/*    {...restProps} // отдаём инпуту остальные пропсы если они есть (value например там внутри)*/}
+            {/*/>*/}
         </>
     )
 }
