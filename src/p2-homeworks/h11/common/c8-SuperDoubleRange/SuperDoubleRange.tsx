@@ -21,6 +21,7 @@ const SuperDoubleRange: React.FC<SuperDoubleRangePropsType> = React.memo((
         // min, max, step, disable, ...
     }
 ) => {
+
     // сделать самому, можно подключать библиотеки
 
     const handleChange = (e: any, newValue: any) => {

@@ -26,12 +26,12 @@ const SuperRange: React.FC<SuperRangePropsType> = React.memo((
         ...restProps// все остальные пропсы попадут в объект restProps
     }
 ) => {
+
     const onChangeCallback = (e: ChangeEvent<HTMLInputElement>) => {
         onChange && onChange(e) // сохраняем старую функциональность
 
         onChangeRange && onChangeRange(+e.currentTarget.value)
     }
-
     const finalRangeClassName = `${s.range} ${className ? className : ''}`
 
     const handleChange = (e: any, newValue: any) => {

@@ -1,78 +1,80 @@
-import React, {useEffect, useState} from 'react'
+import React, {useCallback, useEffect, useMemo, useState} from 'react'
 import SuperRange from './common/c7-SuperRange/SuperRange'
 import SuperDoubleRange from './common/c8-SuperDoubleRange/SuperDoubleRange'
 import {useDispatch, useSelector} from "react-redux";
 import {InputValue} from "./common/c9-InputValue/InputValue";
 import {ActionType, maxValue, minValue, rangeValue} from "../h10/bll/settingsValueReducer";
+import s from "./HW11.module.css"
 
 function HW11() {
-    let stateInputs: any;
-
     const dispatch = useDispatch()
-    const [min, max, range] = useSelector<any, any>(state => {
-        stateInputs = [state.rangeValue[minValue], state.rangeValue[maxValue], state.rangeValue[rangeValue]];
-        return [...stateInputs]
-    })
-    const [value1, setValue1] = useState(min.value)
-    const [value2, setValue2] = useState(max.value)
 
-    function onChange(value: ActionType) {
-        dispatch(value)
-    }
+
+    const [min, max, range, allInput] = useSelector<any, any>(state => {
+        let stateInput = [state.rangeValue[minValue], state.rangeValue[maxValue], state.rangeValue[rangeValue]];
+
+        return [...stateInput, stateInput]
+    })
+    const [currentMinValue, setCurrentMinValue] = useState(0)
+    const [currentMaxValue, setCurrentMaxValue] = useState(100)
+    console.log(currentMinValue)
+    const onChange = useCallback((value: ActionType) => {
+            dispatch(value)
+        }, []
+    )
+
 
     useEffect(() => {
-        if(value1 <= min.value) {
-            setValue1(min.value)
-        }
-        if(value2 >= max.value){
-            setValue2(max.value)
-        }
-        if(value1 >= value2){
-            setValue1(value2)
-        }
-        console.log(value1, min.value, value2,max.value)
-    }, [min.value, max.value, value1, value2])
+        currentMinValue <= min.value
+        && setCurrentMinValue(min.value)
 
+        currentMaxValue >= max.value
+        && setCurrentMaxValue(max.value)
 
-    console.log(min.value)
+        currentMinValue >= currentMaxValue
+        && setCurrentMinValue(currentMaxValue)
+
+    }, [min.value, max.value])
 
     return (
-        <div style={{marginLeft: "50px"}}>
+        <div>
             <hr/>
             homeworks 11
 
             {/*should work (должно работать)*/}
-            <div>
-                <div style={{display: "flex"}}>
-                    {stateInputs.map((v: any) =>
+            <div className={s.container}>
+                <div className={s.wrapperInputsElements}>
+                    {allInput.map((v: any) =>
+
                         <InputValue key={v.id} text={v.text}
                                     id={v.id} onChange={onChange} value={v.value}
                                     action={v.action}
                         />)}
                 </div>
-
-                <span>{value1}</span>
-                <SuperRange
-                    value={value1}
-                    setValue={setValue1}
-                    max={max.value}
-                    min={min.value}
-                    // сделать так чтоб value1 изменялось
-                />
+                <div>
+                    <span>{currentMinValue}</span>
+                    <SuperRange
+                        value={currentMinValue}
+                        setValue={setCurrentMinValue}
+                        max={max.value}
+                        min={min.value}
+                        // сделать так чтоб currentMinValue изменялось
+                    />
+                </div>
             </div>
 
-            <div>
-                <span>{value1}</span>
+            <div className={s.container}>
+                <span>{currentMinValue}</span>
                 <SuperDoubleRange
-                    value={[value1, value2]}
-                    setValueMin={setValue1}
-                    setValueMax={setValue2}
+                    value={[currentMinValue, currentMaxValue]}
+                    setValueMin={setCurrentMinValue}
+                    setValueMax={setCurrentMaxValue}
                     min={min.value}
                     max={max.value}
                     step={range.value}
-                    // сделать так чтоб value1 и value2 изменялось
+                    // сделать так чтоб currentMinValue и value2 изменялось
                 />
-                <span>{value2}</span>
+                <span>{currentMaxValue}</span>
             </div>
 
             <hr/>
