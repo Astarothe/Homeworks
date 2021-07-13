@@ -34,7 +34,7 @@ function HW11() {
         currentMinValue >= currentMaxValue
         && setCurrentMinValue(currentMaxValue)
 
-    }, [min.value, max.value])
+    },  [min.value, max.value])
 
     return (
         <div>
