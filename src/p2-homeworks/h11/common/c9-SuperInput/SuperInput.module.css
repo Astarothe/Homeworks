@@ -1,4 +1,4 @@
-.inputValue {
+.superInput {
     width: 85px;
     text-align: center;
     font-size: 18px;
@@ -8,8 +8,8 @@
     outline: none;
 }
 
-.inputValue::-webkit-outer-spin-button,
-.inputValue::-webkit-inner-spin-button {
+.superInput::-webkit-outer-spin-button,
+.superInput::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }

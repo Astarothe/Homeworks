@@ -1,12 +1,12 @@
 import React from 'react'
 import Slider from "@material-ui/core/Slider";
 import Grid from "@material-ui/core/Grid";
+import {changeValueInputAC} from "../../../h10/bll/settingsValueReducer";
 
 type SuperDoubleRangePropsType = {
     onChangeRange?: (value: [number, number]) => void
     value?: [number, number]
-    setValueMin: (num: number) => void
-    setValueMax: (num: number) => void
+    onChanges: any
     min: number
     max: number
     step: number
@@ -16,18 +16,17 @@ type SuperDoubleRangePropsType = {
 const SuperDoubleRange: React.FC<SuperDoubleRangePropsType> = React.memo((
     {
         onChangeRange, value,
-        setValueMin, setValueMax,
-        min,max,step,
+        min, max, step,
+        onChanges,
         // min, max, step, disable, ...
     }
 ) => {
 
     // сделать самому, можно подключать библиотеки
-
     const handleChange = (e: any, newValue: any) => {
-        setValueMin(newValue[0])
-        setValueMax(newValue[1])
+        onChanges(changeValueInputAC(newValue[0], newValue[1]))
     }
+
     return (
         <>
             DoubleRange
@@ -38,7 +37,6 @@ const SuperDoubleRange: React.FC<SuperDoubleRangePropsType> = React.memo((
                         max={max}
                         value={value}
                         step={step}
-
                         onChange={handleChange}
                         valueLabelDisplay="auto"
                         aria-labelledby="range-slider"
