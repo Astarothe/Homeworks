@@ -57,7 +57,6 @@ export const changeValueInputAC = (changeCurrentMinValue: number, changeCurrentM
     valueMin: changeCurrentMinValue,
     valueMax: changeCurrentMaxValue
 })
-// export const valueMaxInputAC = (value: number): ActionValueType => ({type: MAX_INPUT_VALUE, value})
 
 const initState: InitialStateType = {
     settingsInput: {
@@ -117,28 +116,27 @@ export const settingsValueReducer = (state: InitialStateType = initState, action
     switch (action.type) {
         case MIN_VALUE_SETTING: {
             if (maxValueSettings <= action.value || action.value < 0) return state
-            if (action.value > minValueCurrent) {
+            if (action.value > minValueCurrent)
                 return changeSettingsValue(action, changeRangeValue(changeValueInputAC(action.value)))
-            }
             return changeSettingsValue(action)
         }
+
         case MAX_VALUE_SETTING: {
             if (minValueSettings >= action.value) return state
 
             if (maxValueCurrent >= action.value) {
-                const les = changeRangeValue(changeValueInputAC(minValueCurrent, action.value))
+                const changedMaxValue = changeRangeValue(changeValueInputAC(minValueCurrent, action.value))
                 if (action.value < minValueCurrent) {
                     const actions = changeSettingStep(action, changeRangeValue(changeValueInputAC(action.value, action.value)))
                     return changeSettingsValue(action, actions)
                 }
-                if ((action.value / 2) < stepValueSettings) {
-                    return changeSettingsValue(action, changeSettingStep(action, les))
-                }
-                return changeSettingsValue(action, les)
+                if ((action.value / 2) < stepValueSettings)
+                    return changeSettingsValue(action, changeSettingStep(action, changedMaxValue))
+                return changeSettingsValue(action, changedMaxValue)
             }
-            if ((action.value / 2) < stepValueSettings) {
+            if ((action.value / 2) < stepValueSettings)
                 return changeSettingsValue(action, changeSettingStep(action))
-            }
+
             return changeSettingsValue(action)
         }
         case RANGE_VALUE_SETTING: {
@@ -161,14 +159,3 @@ export const settingsValueReducer = (state: InitialStateType = initState, action
             return state
     }
 }
-// const ranzu = (action: any, copyState: any) => {
-//     let massive = [];
-//     let raznic = (action.value | copyState) - state.settingsInput[minValue].value
-//     for (let i = 0; i < raznic; i++) {
-//         if (raznic % i === 0) {
-//             massive.push(i);
-//         }
-//     }
-//     console.log(massive)
-// }
-// ranzu(action, copyState)
