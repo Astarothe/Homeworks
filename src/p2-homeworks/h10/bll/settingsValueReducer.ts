@@ -121,6 +121,7 @@ export const settingsValueReducer = (state: InitialStateType = initState, action
             return changeSettingsValue(action)
         }
 
+
         case MAX_VALUE_SETTING: {
             if (minValueSettings >= action.value) return state
 
