@@ -89,6 +89,7 @@ export const settingsValueReducer = (state: InitialStateType = initState, action
         }
     }
 
+
     const changeRangeValue = (action: ChangeValueActionType) => {
         return {
             ...state,
@@ -120,7 +121,6 @@ export const settingsValueReducer = (state: InitialStateType = initState, action
                 return changeSettingsValue(action, changeRangeValue(changeValueInputAC(action.value)))
             return changeSettingsValue(action)
         }
-
 
         case MAX_VALUE_SETTING: {
             if (minValueSettings >= action.value) return state
