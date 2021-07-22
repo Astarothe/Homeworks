@@ -100,7 +100,6 @@ export const settingsValueReducer = (state: InitialStateType = initState, action
             }
         }
     }
-
     const changeSettingStep = (action: SettingActionType, stateCopy: InitialStateType = state) => {
         return {
             ...stateCopy,
