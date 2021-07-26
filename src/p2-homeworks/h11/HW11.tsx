@@ -69,7 +69,7 @@ function HW11() {
                         id={v.id}
                         onChange={onChange}
                         value={v.value}/>)
-    }, [allSettings, onChange]);
+    }, [ allSettings,onChange]);
 
     return (
         <div>

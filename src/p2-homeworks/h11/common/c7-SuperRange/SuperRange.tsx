@@ -20,7 +20,6 @@ const SuperRange: React.FC<SuperRangePropsType> = React.memo((
 ) => {
 
     const handleChange = (e: ChangeEvent<{}>, newValue: any) => {
-        console.log(e)
         if(newValue < min){
             return
         }else{

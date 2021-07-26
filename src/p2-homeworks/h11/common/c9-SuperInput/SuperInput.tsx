@@ -22,7 +22,6 @@ export const SuperInput: React.FC<SuperInputType> = React.memo(
                 <TextField
                     id={id}
                     label={text}
-                    color={value < 0 ? "secondary" : "primary"}
                     type="number"
                     value={value}
                     onChange={onChangeHandler}

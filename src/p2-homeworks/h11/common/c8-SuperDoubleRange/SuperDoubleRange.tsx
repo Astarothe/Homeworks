@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {ChangeEvent} from 'react'
 import Slider from "@material-ui/core/Slider";
 import Grid from "@material-ui/core/Grid";
 import {changeInputValueAC} from "../../../h10/bll/settingsValueReducer";
@@ -23,7 +23,7 @@ const SuperDoubleRange: React.FC<SuperDoubleRangePropsType> = React.memo((
 ) => {
 
     // сделать самому, можно подключать библиотеки
-    const handleChange = (e: any, newValue: any) => {
+    const handleChange = (e: ChangeEvent<{}>, newValue: any) => {
         onChanges(changeInputValueAC(newValue[0], newValue[1]))
     }
 
