@@ -1,8 +1,7 @@
 import Grid from '@material-ui/core/Grid';
 import Slider from '@material-ui/core/Slider';
 import React, {ChangeEvent, DetailedHTMLProps, InputHTMLAttributes} from 'react'
-import s from './SuperRange.module.css'
-import {changeValueInputAC} from "../../../h10/bll/settingsValueReducer";
+import {changeInputValueAC} from "../../../h10/bll/settingsValueReducer";
 
 // тип пропсов обычного инпута
 type DefaultInputPropsType = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>
@@ -13,33 +12,19 @@ type SuperRangePropsType = DefaultInputPropsType & { // и + ещё пропсы
     onChangeRange?: (value: number) => void
     value: number
     onChanges: any
-    max: number
     min: number
 };
 
 const SuperRange: React.FC<SuperRangePropsType> = React.memo((
-    {
-        type, // достаём и игнорируем чтоб нельзя было задать другой тип инпута
-        onChange, onChangeRange,
-        className, value, onChanges,
-        max,min,
-
-        ...restProps// все остальные пропсы попадут в объект restProps
-    }
+    {value, onChanges, min}
 ) => {
 
-    const onChangeCallback = (e: ChangeEvent<HTMLInputElement>) => {
-        onChange && onChange(e) // сохраняем старую функциональность
-
-        onChangeRange && onChangeRange(+e.currentTarget.value)
-    }
-    const finalRangeClassName = `${s.range} ${className ? className : ''}`
-
-    const handleChange = (e: any, newValue: any) => {
-        if(newValue > max){
+    const handleChange = (e: ChangeEvent<{}>, newValue: any) => {
+        console.log(e)
+        if(newValue < min){
             return
         }else{
-            onChanges(changeValueInputAC(newValue))
+           onChanges(changeInputValueAC(newValue))
         }
     }
 
