@@ -2,7 +2,7 @@ import React from 'react'
 import {useDispatch, useSelector} from 'react-redux';
 import SuperButton from '../h4/common/c2-SuperButton/SuperButton'
 import {AppStoreType} from "./bll/store";
-import {InitialStateType, loadingAC} from "./bll/loadingReducer";
+import {loadingAC} from "./bll/loadingReducer";
 import {Preloader} from "./Preloader/Preloader";
 
 function HW10() {

@@ -37,28 +37,27 @@ function HW11() {
             if (value.id === minValueSettingID) {
                 if (value.value > minCurrentValue) {
                     dispatch(changeInputValueAC(value.value))
-                } else if (maxValueSetting.value - value.value < stepValueSetting.value) {
+                }
+                if (maxValueSetting.value - value.value < stepValueSetting.value) {
                     dispatch(changeSettingValueAC((maxValueSetting.value - value.value), stepValueSettingID))
-                } else if (value.value >= maxValueSetting.value || value.value < 0) return
+                }
+                if (value.value >= maxValueSetting.value || value.value < 0) return
             }
-
             if (value.id === maxValueSettingID) {
                 if (value.value < maxCurrentValue) {
                     dispatch(changeInputValueAC(minValueSetting.value, value.value))
-                } else if (value.value - minValueSetting.value < stepValueSetting.value) {
+                }
+                if (value.value - minValueSetting.value < stepValueSetting.value) {
                     dispatch(changeSettingValueAC((value.value - minValueSetting.value), stepValueSettingID))
-                } else if (value.value <= minValueSetting.value) return
+                }
+                if (value.value <= minValueSetting.value) return
             }
-
             if (value.id === stepValueSettingID) {
                 if (value.value > (maxValueSetting.value - minValueSetting.value) || value.value <= 0) return
             }
-
         }else{
             if (value.minValue > maxCurrentValue) return
         }
-
-
         dispatch(value)
     }, [dispatch, minCurrentValue, maxCurrentValue, minValueSetting.value, maxValueSetting.value, stepValueSetting.value])
 
