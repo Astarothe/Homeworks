@@ -1,0 +1,10 @@
+.container {
+    margin-left: 30px;
+    margin-top: 10px;
+}
+
+.wrapperInputsElements {
+    display: flex;
+    justify-content: space-between;
+    width: 400px;
+}
